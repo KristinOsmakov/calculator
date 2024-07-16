@@ -10,10 +10,11 @@ type ButtonPropsType = {
     background: string,
     className: string
 
+
 };
 export const Button = ({title, onClick, color, background, className}: ButtonPropsType) => {
     return (
-        <button className={className} style={{background: background, color: color}} onClick={onClick}>
+        <button className={className} onClick={onClick} style={{color: color, background: background}}>
             {title}
         </button>
     );

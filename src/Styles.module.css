@@ -37,12 +37,18 @@ body {
     user-select: none;
     gap: 20px;
 }
-.result {
+.resultAndCount {
     height: 70px;
+    width: fit-content;
     text-align: right;
     margin-bottom: 20px;
     color: white;
     font-size: 60px;
     max-width: 300px;
     user-select: none;
+    border: 1px solid red;
+}
+.containerResultAndCount {
+    display: flex;
+    justify-content: space-between;
 }
