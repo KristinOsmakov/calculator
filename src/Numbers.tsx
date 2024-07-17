@@ -4,39 +4,38 @@ import s from "./Styles.module.css";
 import {Button} from "./Button";
 
 type NumbersPropsType = {
-        onClick: (value: string) => void
-        functionForAC: () => void
+        onClick: (value: string) => void,
+        functionForAC: () => void,
+        functionForSum: () => void
 };
 
-
-
 const buttonData = [
-    { title: 'AC', background: '#D3D3D3', color: 'black' },
-    { title: '+/-', background: '#D3D3D3', color: 'black' },
-    { title: '%', background: '#D3D3D3', color: 'black' },
-    { title: '÷', background: '#FF8C00', color: 'white' },
-    { title: '7', background: '#696969', color: 'white' },
-    { title: '8', background: '#696969', color: 'white' },
-    { title: '9', background: '#696969', color: 'white' },
-    { title: 'x', background: '#FF8C00', color: 'white' },
-    { title: '4', background: '#696969', color: 'white' },
-    { title: '5', background: '#696969', color: 'white' },
-    { title: '6', background: '#696969', color: 'white' },
-    { title: '-', background: '#FF8C00', color: 'white' },
-    { title: '1', background: '#696969', color: 'white' },
-    { title: '2', background: '#696969', color: 'white' },
-    { title: '3', background: '#696969', color: 'white' },
-    { title: '+', background: '#FF8C00', color: 'white' },
-    { title: '0', background: '#696969', color: 'white' },
-    { title: ',', background: '#696969', color: 'white' },
-    { title: '=', background: '#FF8C00', color: 'white' },
+    { title: 'AC', value: 'AC', background: '#D3D3D3', color: 'black' },
+    { title: '+/-', value: '+/-', background: '#D3D3D3', color: 'black' },
+    { title: '%', value: '%', background: '#D3D3D3', color: 'black' },
+    { title: '÷', value: '/', background: '#FF8C00', color: 'white' },
+    { title: '7', value: '7', background: '#696969', color: 'white' },
+    { title: '8', value: '8', background: '#696969', color: 'white' },
+    { title: '9', value: '9', background: '#696969', color: 'white' },
+    { title: 'x', value: '*', background: '#FF8C00', color: 'white' },
+    { title: '4', value: '4', background: '#696969', color: 'white' },
+    { title: '5', value: '5', background: '#696969', color: 'white' },
+    { title: '6', value: '6', background: '#696969', color: 'white' },
+    { title: '-', value: '-', background: '#FF8C00', color: 'white' },
+    { title: '1', value: '1', background: '#696969', color: 'white' },
+    { title: '2', value: '2', background: '#696969', color: 'white' },
+    { title: '3', value: '3', background: '#696969', color: 'white' },
+    { title: '+', value: '+', background: '#FF8C00', color: 'white' },
+    { title: '0', value: '0', background: '#696969', color: 'white' },
+    { title: ',', value: ',', background: '#696969', color: 'white' },
+    { title: '=', value: '=', background: '#FF8C00', color: 'white' },
 ];
 
-export const Numbers = ({ onClick, functionForAC }: NumbersPropsType) => {
-    const buttons = buttonData.map(({ title, background, color }) => (
+export const Numbers = ({ onClick, functionForAC, functionForSum }: NumbersPropsType) => {
+    const buttons = buttonData.map(({ title, background, color, value }) => (
         <Button
             key={title}
-            onClick={title === 'AC' ? (()=> functionForAC()) : (() => onClick(title))}
+            onClick={value === '=' ? (()=> functionForSum()) : (value === 'AC' ? (()=> functionForAC()) : (() => onClick(value)))}
             title={title}
             background={background}
             color={color}
